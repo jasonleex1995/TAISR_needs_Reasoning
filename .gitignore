@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Notebooks / OS
+.ipynb_checkpoints/
+.DS_Store
+
+# Outputs / caches produced at runtime
+results/
+*.log
+*.checkpoint.jsonl

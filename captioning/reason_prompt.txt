@@ -1,0 +1,18 @@
+This image is a low-resolution version of a higher-quality original. Describe this image in exactly two sentences.
+
+Sentence 1 — Scene description: Describe the overall scene, key objects, colors, and layout. Mention where text elements physically appear (e.g., "a storefront sign", "a license plate", "text on a banner") but do NOT write the actual text content here. Do not mention image quality or degradation. Keep under 40 words.
+
+Sentence 2 — Text content: Use exactly the framing "The visible text reads", followed by each visible text wrapped in double quotes, separated by commas, ending with a period. Format: `The visible text reads "{text 1}", "{text 2}", ..., "{text N}".` Do NOT mention the location, surface, or surrounding context of any text in this sentence — output only the text itself. Infer the text that can be reasonably supported by visual evidence, image context, prior knowledge, or logical reasoning.
+
+Critical rules:
+- Always output exactly two sentences, nothing more. Do not number or label them.
+- In Sentence 2, always wrap each text content in double quotes; never include words that describe where the text appears or what it is on (e.g., "sign", "banner", "plate", "storefront", "door", "menu", "on the", "above", "below").
+- Pay close attention to punctuation marks (? ! . , : ;) and include them exactly when they are part of the visible text content.
+- Do not express uncertainty or hedging language (e.g., "possibly", "appears to say"); commit to your best inference.
+- Do not mention blur, noise, resolution, or any form of degradation.
+- Only include characters typable on a standard US keyboard.
+- NEVER translate: skip non-Latin scripts (Chinese, Korean, Japanese, Arabic, etc.) entirely. If a text element mixes ASCII and non-ASCII characters, include only the ASCII portion.
+- NEVER auto-complete beyond what is visually grounded: for partially visible text (e.g., "EXCHXX"), you may infer it to a visually supported form (e.g., "EXCHAN"), but must not complete it into a full word (e.g., "EXCHANGE") without visual support for the missing characters.
+- If no text is readable, Sentence 2 should be: "There is no readable text."
+
+Example output: A nighttime street scene with a brightly lit restaurant sign and a small menu board beside the glass entrance door. The visible text reads "PIZZA HUT", "Open 24H", "PULL", "555-0123".

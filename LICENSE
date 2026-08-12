@@ -1,0 +1,37 @@
+Non-Commercial Research License
+
+Copyright (c) 2026 <AUTHORS — fill in before release>
+
+This license covers the original code and annotations in this repository that we
+authored (the "Work"): specifically `captioning/` (including reason_captions.json
+and reason_prompt.txt), `DiT4SR/run_dit4sr_from_caption.py`, `DiT4SR/config.py`,
+`gttca/`, `run_dit4sr_with_rtc.sh`, and the ReasonText annotations distributed
+with this project.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+the Work, to use, copy, modify, and distribute it FOR NON-COMMERCIAL RESEARCH
+PURPOSES ONLY, subject to the following conditions:
+
+1. Attribution. The above copyright notice, this license, and a citation to our
+   paper must be retained in all copies or substantial portions of the Work.
+
+2. Non-commercial. The Work may not be used, in whole or in part, for any
+   commercial purpose.
+
+3. The ReasonText annotations are additionally released under the terms of
+   Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0).
+
+THIRD-PARTY COMPONENTS (NOT covered by this license — governed by their own terms):
+  - DiT4SR backbone under `DiT4SR/pipelines/`, `DiT4SR/model_dit4sr/`,
+    `DiT4SR/utils/` — Pi-Lab License 1.0 (non-commercial); see `DiT4SR/LICENSE`.
+  - ReasonText images (HR/LR) and the super-resolution outputs are DERIVED from
+    the RealSR (v3) and DRealSR datasets and are subject to those datasets' terms.
+  - Model weights (Stable Diffusion 3.5, DiT4SR-Q, Gemma-4, PaddleOCR-VL) are NOT
+    redistributed here and remain under their respective licenses.
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
