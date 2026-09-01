@@ -14,9 +14,9 @@
 
 <p align="center"><img src="assets/gttca.png" width="100%"></p>
 
-1. Crop the text region of the SR output using the GT text polygon.
-2. Reorient the cropped SR text using the GT text transformation.
-3. Run OCR and evaluate normalized exact-match accuracy against the GT text.
+1. Crop the text region of the SR output using the GT polygon.
+2. Reorient the crop to upright using the GT orientation (rotation and flip).
+3. Run OCR on the crop and compute the normalized exact-match accuracy against the GT text.
 
 ### Installation
 
@@ -28,7 +28,7 @@ pip install -r requirements_gttca.txt
 ### Weights & Data
 
 - Download **[PaddleOCR-VL-1.5](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5)** and set its path in `gttca/weights_config.json`.
-- Download the **[ReasonText benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)** for the GT polygons, transformations, and transcripts.
+- Download the **[ReasonText benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)** for the GT polygons, orientations, and transcripts.
 - Download the **[SR outputs](https://huggingface.co/datasets/Jasonleex1995/ReasonText-SR-outputs)** to reproduce our quantitative results.
 
 ### Measure GTTCA on ReasonText
@@ -66,9 +66,9 @@ pip install -r requirements_rtc.txt
 - Download **[Stable Diffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)** and set `SD35_PATH`.
 - Download **[DiT4SR-Q](https://github.com/Adam-duan/DiT4SR)** and set `DIT4SR_Q_PATH`.
 - Download **[Gemma-4 31B-it](https://huggingface.co/google/gemma-4-31B-it)** and set `GEMMA4_PATH`.
-- Run on your own LR images, or use the ReasonText `LR/` images to reproduce our results.
+- Use your own LR images, or the ReasonText `LR/` images to reproduce our results.
 
-### Running DiT4SR + RTC
+### Run DiT4SR + RTC
 
 ```bash
 GEMMA4_PATH=... SD35_PATH=... DIT4SR_Q_PATH=... \
