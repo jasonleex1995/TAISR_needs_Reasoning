@@ -13,9 +13,9 @@
 ## 📁 Repository layout
 
 ```
-captioning/   RTC Stage 1 — MLLM captioning with the reasoning prompt (backbone-independent)
-DiT4SR/       RTC Stage 2 — caption-conditioned super-resolution (DiT4SR)
-gttca/        GTTCA metric — evaluate SR text restoration and summarize the scores
+captioning/   RTC Stage 1 — MLLM (Gemma-4) captioning with the reasoning prompt
+DiT4SR/       RTC Stage 2 — run DiT4SR with the generated caption
+gttca/        GTTCA metric — measure how well an SR model restores text and summarize the results
 ```
 
 ---
@@ -105,7 +105,7 @@ python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
 
 ## 📖 Citation
 
-If you use this work, please cite our paper (and RealSR-v3 / DRealSR, which ReasonText is built on):
+If you find our work useful for your research, please consider citing our paper:
 
 ```bibtex
 <bibtex — fill in>
