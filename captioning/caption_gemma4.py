@@ -43,6 +43,8 @@ IMAGE_EXTENSIONS = ["*.png", "*.jpg", "*.jpeg", "*.webp", "*.bmp", "*.tiff"]
 
 
 def collect_images(input_dir):
+    if os.path.isfile(input_dir):
+        return [input_dir]
     paths = []
     for ext in IMAGE_EXTENSIONS:
         paths.extend(glob.glob(os.path.join(input_dir, ext)))
@@ -104,7 +106,7 @@ def run_inference(model, processor, instruction, image_paths, max_new_tokens, ch
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_dir", type=str, required=True, help="Directory of LR images.")
+    parser.add_argument("--input_dir", type=str, required=True, help="LR image file or directory of LR images.")
     parser.add_argument("--output", type=str, default="reason_captions.json", help="Output caption JSON path.")
     parser.add_argument("--prompt", type=str, default=DEFAULT_PROMPT_PATH, help="Reasoning prompt text file.")
     parser.add_argument("--model-id", type=str, default=DEFAULT_MODEL_ID, help="Gemma-4 weights path (or set GEMMA4_PATH).")

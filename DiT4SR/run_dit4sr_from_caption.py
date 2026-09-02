@@ -295,7 +295,7 @@ if __name__ == "__main__":
     parser.add_argument("--transformer_model_name_or_path", type=str, default=DIT4SR_Q_PATH)
     parser.add_argument("--benchmark", type=str, default="ReasonText",
                         help="Benchmark name, used only to build the default output dir.")
-    parser.add_argument("--image_path", type=str, required=True, help="Directory of LR images.")
+    parser.add_argument("--image_path", type=str, required=True, help="LR image file or directory of LR images.")
     parser.add_argument("--caption_json", type=str, required=True,
                         help="RTC caption JSON from caption_gemma4.py (e.g. ../captioning/reason_captions.json).")
     parser.add_argument("--caption_mode", type=str, default="full", choices=list(CAPTION_MODES),

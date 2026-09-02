@@ -63,7 +63,7 @@ pip install -r requirements_rtc.txt
 
 ### Weights & Data
 
-- Download **[Stable Diffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)**, **[DiT4SR-Q](https://github.com/Adam-duan/DiT4SR)**, and **[Gemma-4 31B-it](https://huggingface.co/google/gemma-4-31B-it)** (set their paths in the Run step below, or edit `DiT4SR/config.py`).
+- Download **[Stable Diffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)**, **[DiT4SR-Q](https://github.com/Adam-duan/DiT4SR)**, and **[Gemma-4 31B-it](https://huggingface.co/google/gemma-4-31B-it)**.
 - Use your own LR images, or the ReasonText `LR/` images to reproduce our results.
 
 ### Run
@@ -88,6 +88,12 @@ python captioning/caption_gemma4.py --input_dir /path/to/your_LR --output my_cap
 # SR only, from an existing caption
 python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
     --caption_json my_captions.json --output_dir ./results/my_run/images
+```
+
+The input path can be a folder of images or a single image file:
+
+```bash
+bash run_dit4sr_with_rtc.sh /path/to/one_LR.png ./results/one
 ```
 
 ---
