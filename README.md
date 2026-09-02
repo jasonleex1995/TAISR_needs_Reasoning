@@ -14,8 +14,8 @@
 
 ```
 captioning/   RTC Stage 1 — MLLM captioning with the reasoning prompt (backbone-independent)
-DiT4SR/       RTC Stage 2 — DiT4SR backbone + our entry point
-gttca/        GTTCA metric — evaluate_gttca.py · summarize.py · weights_config.json
+DiT4SR/       RTC Stage 2 — caption-conditioned super-resolution (DiT4SR)
+gttca/        GTTCA metric — evaluate SR text restoration and summarize the scores
 ```
 
 ---
@@ -61,7 +61,7 @@ python gttca/summarize.py --results-root ./results --output-dir ./results/summar
 
 <p align="center"><img src="assets/rtc.png" width="100%"></p>
 
-1. Prompt an MLLM (Gemma-4) to reason over the LR image and generate a caption of the text it identifies.
+1. Prompt an MLLM (Gemma-4) to reason over the LR image and generate a caption including the text it identifies.
 2. Inject the caption into a text-conditioned SR backbone (DiT4SR) to restore the image.
 
 ### Installation
@@ -90,7 +90,8 @@ Then run one of:
 
 ```bash
 # end-to-end (caption then SR)
-bash run_dit4sr_with_rtc.sh /path/to/your_LR ./results/my_run
+bash run_dit4sr_with_rtc.sh /path/to/your_LR ./results/my_run    # image folder
+bash run_dit4sr_with_rtc.sh /path/to/one_LR.png ./results/one    # one image
 
 # caption only
 python captioning/caption_gemma4.py --input_dir /path/to/your_LR --output my_captions.json
@@ -98,12 +99,6 @@ python captioning/caption_gemma4.py --input_dir /path/to/your_LR --output my_cap
 # SR only, from an existing caption
 python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
     --caption_json my_captions.json --output_dir ./results/my_run/images
-```
-
-For example, on a single image:
-
-```bash
-bash run_dit4sr_with_rtc.sh /path/to/one_LR.png ./results/one
 ```
 
 ---
@@ -120,4 +115,4 @@ If you use this work, please cite our paper (and RealSR-v3 / DRealSR, which Reas
 
 ## 🙏 Acknowledgements
 
-We thank the authors of DiT4SR, Stable Diffusion 3.5 (Stability AI), Gemma-4 (Google), and PaddleOCR-VL (PaddlePaddle), as well as the RealSR-v3 and DRealSR datasets.
+We thank the authors of DiT4SR, Stable Diffusion 3.5 (Stability AI), Gemma-4 (Google), PaddleOCR-VL (PaddlePaddle), and the RealSR-v3 / DRealSR datasets for open-sourcing their models and data.
