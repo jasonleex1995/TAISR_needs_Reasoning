@@ -10,6 +10,16 @@
 
 ---
 
+## 📁 Repository layout
+
+```
+captioning/   RTC Stage 1 — MLLM captioning with the reasoning prompt (backbone-independent)
+DiT4SR/       RTC Stage 2 — DiT4SR backbone + our entry point
+gttca/        GTTCA metric — evaluate_gttca.py · summarize.py · weights_config.json
+```
+
+---
+
 ## 📏 ReasonText + GTTCA
 
 <p align="center"><img src="assets/gttca.png" width="100%"></p>
@@ -95,18 +105,6 @@ For example, on a single image:
 ```bash
 bash run_dit4sr_with_rtc.sh /path/to/one_LR.png ./results/one
 ```
-
----
-
-## 📁 Repository layout
-
-```
-captioning/   RTC Stage 1 — MLLM captioning with the reasoning prompt (backbone-independent)
-DiT4SR/       RTC Stage 2 — DiT4SR backbone + our entry point
-gttca/        GTTCA metric — evaluate_gttca.py · summarize.py · weights_config.json
-```
-
-Everything is ours **except** `DiT4SR/{pipelines,model_dit4sr,utils}/` ([Adam-duan/DiT4SR](https://github.com/Adam-duan/DiT4SR), unmodified — see `DiT4SR/LICENSE`). RTC is training-free: it only swaps DiT4SR's built-in captioner for a reasoning caption.
 
 ---
 
