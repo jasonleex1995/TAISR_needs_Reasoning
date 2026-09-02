@@ -25,8 +25,8 @@ gttca/        GTTCA metric: measure how well an SR model restores text and summa
 <p align="center"><img src="assets/gttca.png" width="100%"></p>
 
 1. Crop the text region of the SR output using the GT polygon.
-2. Reorient the crop to upright using the GT orientation (rotation and flip).
-3. Run OCR on the crop and compute the normalized exact-match accuracy against the GT text.
+2. Reorient the crop upright using the GT orientation (rotation and flip).
+3. Run OCR on the crop and compute normalized exact-match accuracy against the GT text.
 
 ### Installation
 
@@ -86,7 +86,7 @@ export DIT4SR_Q_PATH=/path/to/dit4sr_q
 export GEMMA4_PATH=/path/to/gemma-4-31B-it
 ```
 
-Then run one of:
+Then run one of the following:
 
 ```bash
 # end-to-end (caption then SR)
