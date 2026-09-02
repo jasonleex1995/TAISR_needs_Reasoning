@@ -13,9 +13,9 @@
 ## 📁 Repository layout
 
 ```
-captioning/   RTC Stage 1 — MLLM (Gemma-4) captioning with the reasoning prompt
-DiT4SR/       RTC Stage 2 — run DiT4SR with the generated caption
-gttca/        GTTCA metric — measure how well an SR model restores text and summarize the results
+captioning/   RTC Stage 1: MLLM (Gemma-4) captioning with the reasoning prompt
+DiT4SR/       RTC Stage 2: run DiT4SR with the generated caption
+gttca/        GTTCA metric: measure how well an SR model restores text and summarize the results
 ```
 
 ---
