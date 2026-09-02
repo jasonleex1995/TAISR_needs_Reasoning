@@ -108,6 +108,8 @@ gttca/        GTTCA metric — evaluate_gttca.py · summarize.py · weights_conf
 
 Everything is ours **except** `DiT4SR/{pipelines,model_dit4sr,utils}/` ([Adam-duan/DiT4SR](https://github.com/Adam-duan/DiT4SR), unmodified — see `DiT4SR/LICENSE`). RTC is training-free: it only swaps DiT4SR's built-in captioner for a reasoning caption.
 
+---
+
 ## 📖 Citation
 
 If you use this work, please cite our paper (and RealSR-v3 / DRealSR, which ReasonText is built on):
@@ -116,6 +118,8 @@ If you use this work, please cite our paper (and RealSR-v3 / DRealSR, which Reas
 <bibtex — fill in>
 ```
 
+---
+
 ## 🙏 Acknowledgements
 
-We thank the authors of [DiT4SR](https://github.com/Adam-duan/DiT4SR), Stable Diffusion 3.5 (Stability AI), Gemma-4 (Google), and PaddleOCR-VL (PaddlePaddle), as well as the RealSR-v3 and DRealSR datasets, whose work this repository builds on.
+We thank the authors of DiT4SR, Stable Diffusion 3.5 (Stability AI), Gemma-4 (Google), and PaddleOCR-VL (PaddlePaddle), as well as the RealSR-v3 and DRealSR datasets.
