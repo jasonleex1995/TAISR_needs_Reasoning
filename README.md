@@ -108,7 +108,7 @@ python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
 If you find our work useful for your research, please consider citing our paper:
 
 ```bibtex
-<bibtex — fill in>
+<fill in BibTeX>
 ```
 
 ---
