@@ -28,7 +28,7 @@ pip install -r requirements_gttca.txt
 ### Weights & Data
 
 - Download **[PaddleOCR-VL-1.5](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5)** and set its path in `gttca/weights_config.json`.
-- Download the **[ReasonText benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)** for the GT polygons, orientations, and transcripts.
+- Download the **[ReasonText benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)**.
 - Download the **[SR outputs](https://huggingface.co/datasets/Jasonleex1995/ReasonText-SR-outputs)** to reproduce our quantitative results.
 
 ### Measure GTTCA on ReasonText
@@ -51,7 +51,7 @@ python gttca/summarize.py --results-root ./results --output-dir ./results/summar
 
 <p align="center"><img src="assets/rtc.png" width="100%"></p>
 
-1. Generate a reasoning caption from the LR image with an MLLM (Gemma-4).
+1. Prompt an MLLM (Gemma-4) to reason over the LR image and generate a caption of the text it identifies.
 2. Inject the caption into a text-conditioned SR backbone (DiT4SR) to restore the image.
 
 ### Installation
@@ -63,30 +63,33 @@ pip install -r requirements_rtc.txt
 
 ### Weights & Data
 
-- Download **[Stable Diffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)** and set `SD35_PATH`.
-- Download **[DiT4SR-Q](https://github.com/Adam-duan/DiT4SR)** and set `DIT4SR_Q_PATH`.
-- Download **[Gemma-4 31B-it](https://huggingface.co/google/gemma-4-31B-it)** and set `GEMMA4_PATH`.
+- Download **[Stable Diffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)**, **[DiT4SR-Q](https://github.com/Adam-duan/DiT4SR)**, and **[Gemma-4 31B-it](https://huggingface.co/google/gemma-4-31B-it)**, then set `SD35_PATH`, `DIT4SR_Q_PATH`, and `GEMMA4_PATH` (or edit `DiT4SR/config.py`).
 - Use your own LR images, or the ReasonText `LR/` images to reproduce our results.
 
-### Run DiT4SR + RTC
+### Run
+
+Set the three weight paths first, then pick one:
+
+**Caption, then SR (end-to-end):**
 
 ```bash
-GEMMA4_PATH=... SD35_PATH=... DIT4SR_Q_PATH=... \
-  bash run_dit4sr_with_rtc.sh /path/to/your_LR ./results/my_run
+bash run_dit4sr_with_rtc.sh /path/to/your_LR ./results/my_run
 ```
 
-<details><summary>… or as two explicit steps (caption → SR)</summary>
+**Caption only:**
 
 ```bash
 python captioning/caption_gemma4.py --input_dir /path/to/your_LR --output my_captions.json
+```
+
+**SR only, from an existing caption:**
+
+```bash
 python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
     --caption_json my_captions.json --output_dir ./results/my_run/images
 ```
 
-To reproduce our exact SR images on ReasonText, pass the shipped `captioning/reason_captions.json` to `run_dit4sr_from_caption.py`.
-</details>
-
-To score these outputs, use **ReasonText + GTTCA** above.
+Pass the shipped `captioning/reason_captions.json` here to reproduce our exact SR images on ReasonText. To score the outputs, use **ReasonText + GTTCA** above.
 
 ---
 
