@@ -4,7 +4,7 @@
 
 ### NeurIPS 2026
 
-[🌐 Project Page](https://example.com) · [📄 arXiv](https://example.com) · [🤗 ReasonText Benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)
+[🌐 Project Page](https://example.com) · 📄 arXiv (coming soon) · [🤗 ReasonText Benchmark](https://huggingface.co/datasets/Jasonleex1995/ReasonText)
 
 </div>
 
