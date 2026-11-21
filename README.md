@@ -108,7 +108,15 @@ python DiT4SR/run_dit4sr_from_caption.py --image_path /path/to/your_LR \
 If you find our work useful for your research, please consider citing our paper:
 
 ```bibtex
-<fill in BibTeX>
+@inproceedings{lee2026reading,
+  title         = {Reading the Unreadable: Text-Aware Image Super-Resolution Needs Reasoning},
+  author        = {Lee, Jaeseong and Kim, Jinwoo and Jeong, Jinho and Kim, Seon Joo},
+  booktitle     = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year          = {2026},
+  eprint        = {2611.15449},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
+}
 ```
 
 ---
