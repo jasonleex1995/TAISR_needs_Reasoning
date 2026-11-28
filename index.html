@@ -209,8 +209,8 @@ footer{text-align:center;padding:40px 24px 60px;color:var(--muted);font-size:14p
       <div class="bc-dots" id="bcDots"></div>
     </div>
     <div class="lead" style="margin-top:30px">
-      <p style="margin:0 0 12px">To answer this question, we construct the <b>ReasonText</b> benchmark, the first TAISR benchmark that separates locally readable text from reasoning-required text. We label each text instance by how a human can read it in the LR image:</p>
-      <p style="margin:0 0 6px;padding-left:28px"><b>Level 1 (locally readable):</b> a human can read the text given only the cropped LR text image.</p>
+      <p style="margin:0 0 12px">To answer this question, we construct the <b>ReasonText</b> benchmark, the first TAISR benchmark that separates locally recoverable text from reasoning-required text. We label each text instance by how a human can read it in the LR image:</p>
+      <p style="margin:0 0 6px;padding-left:28px"><b>Level 1 (locally recoverable):</b> a human can read the text given only the cropped LR text image.</p>
       <p style="margin:0;padding-left:28px"><b>Level 2 (reasoning-required):</b> a human can only read it from the LR image by reasoning over the surrounding context.</p>
     </div>
   </div>
@@ -338,7 +338,7 @@ const CUECOL={'Prior Knowledge':'#3B5BA5','Image Context':'#2C8C86','Logical Pat
 const card=document.getElementById('bcCard'),counter=document.getElementById('bcCounter'),dots=document.getElementById('bcDots');
 function render(){
   const s=S[idx];const lvClass=s.level===1?'bc-lv1':'bc-lv2';
-  const head=s.level===1?'<span class="lv '+lvClass+'">Level 1 (locally readable)</span>'
+  const head=s.level===1?'<span class="lv '+lvClass+'">Level 1 (locally recoverable)</span>'
                         :'<span class="lv '+lvClass+'">Level 2 (reasoning-required)</span><span class="bc-chip" style="background:'+CUECOL[s.cue]+'">'+s.cue+'</span>';
   const midDim=s.level===1?'bc-stepdim':'';const gtlv=s.level===1?'Level 1':'Level 2 &middot; '+s.cue;
   const cropCorner='<span class="bc-corner '+(s.level===1?'ok':'no')+'">'+(s.level===1?'&#10003;':'&#10007;')+'</span>';
@@ -367,7 +367,7 @@ const CUECOL={'Prior Knowledge':'#3B5BA5','Image Context':'#2C8C86','Logical Pat
 const card=document.getElementById('dgCard'),counter=document.getElementById('dgCounter'),dots=document.getElementById('dgDots');
 function render(){
   const s=S[idx];
-  const head=s.level===1?'<span class="lv lv1">Level 1 (locally readable)</span>'
+  const head=s.level===1?'<span class="lv lv1">Level 1 (locally recoverable)</span>'
                         :'<span class="lv lv2">Level 2 (reasoning-required)</span><span class="dg-chip" style="background:'+CUECOL[s.cue]+'">'+s.cue+'</span>';
   let mid='';for(let j=0;j<s.models.length;j++){const mm=s.models[j];mid+='<div class="dg-m '+(mm.ok?'ok':'no')+'"><span class="st">'+(mm.ok?'\u2713':'\u2717')+'</span><div class="dg-mhead"><span class="nm2">'+LAB[j]+'</span></div><div class="iw"><img src="'+mm.img+'"></div></div>';}
   card.innerHTML='<p class="dg-head">'+head+'</p><div class="dg-body">'
